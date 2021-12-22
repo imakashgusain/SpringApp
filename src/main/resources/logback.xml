@@ -1,0 +1,38 @@
+<configuration>
+<include resource="org.springframework.boot.logging.base.xml"/>
+<!--    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--    <encoder>-->
+<!--        <pattern>-->
+<!--            %d{dd-MM-yyyy HH:mm:ss:SSS} %green([%thread]) %highlight(%-5level) %-50logger{36}  %M -%msg%n-->
+<!--        </pattern>-->
+<!--    </encoder>-->
+<!--    </appender>-->
+
+    <appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{dd-MM-yyyy HH:mm:ss:SSS} %green([%thread]) %highlight(%-5level) %-50logger{36}  %M -%msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <File>demo.log</File>
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter
+                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>true</prettyPrint>
+            </jsonFormatter>
+            <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
+        </layout>
+    </appender>
+
+
+    <root level="info">
+<!--        <appender-ref ref="Console"/>-->
+        <appender-ref ref="json"/>
+        <appender-ref ref="file"/>
+    </root>
+
+
+</configuration>

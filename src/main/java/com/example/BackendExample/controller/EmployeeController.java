@@ -62,6 +62,7 @@ public class EmployeeController {
             return new ResponseEntity<String>("Employee id doesn't Exist",HttpStatus.NOT_FOUND);
         }
         catch (Exception e){
+            log.error("Error in fetching data");
             return  new ResponseEntity<String>("Error in Fetching Data",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

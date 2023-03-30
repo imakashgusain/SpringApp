@@ -1,8 +1,8 @@
-package com.example.BackendExample.controller;
+package com.example.backendexample.controller;
 
-import com.example.BackendExample.exception.ResourceNotFoundException;
-import com.example.BackendExample.model.Employee;
-import com.example.BackendExample.service.EmployeeService;
+import com.example.backendexample.exception.ResourceNotFoundException;
+import com.example.backendexample.model.Employee;
+import com.example.backendexample.service.EmployeeService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

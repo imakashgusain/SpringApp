@@ -1,9 +1,9 @@
-package com.example.BackendExample.service.impl;
+package com.example.backendexample.service.impl;
 
-import com.example.BackendExample.exception.ResourceNotFoundException;
-import com.example.BackendExample.model.Employee;
-import com.example.BackendExample.repository.EmployeeRepository;
-import com.example.BackendExample.service.EmployeeService;
+import com.example.backendexample.exception.ResourceNotFoundException;
+import com.example.backendexample.model.Employee;
+import com.example.backendexample.repository.EmployeeRepository;
+import com.example.backendexample.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

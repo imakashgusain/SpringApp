@@ -1,4 +1,4 @@
-package com.example.BackendExample.model;
+package com.example.backendexample.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.BackendExample.exception;
+package com.example.backendexample.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

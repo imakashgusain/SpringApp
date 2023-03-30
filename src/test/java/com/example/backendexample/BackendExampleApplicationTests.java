@@ -1,12 +1,10 @@
-package com.example.BackendExample;
+package com.example.backendexample;
 
-import com.example.BackendExample.model.Employee;
-import com.example.BackendExample.repository.EmployeeRepository;
-import com.example.BackendExample.service.EmployeeService;
+import com.example.backendexample.model.Employee;
+import com.example.backendexample.service.EmployeeService;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;

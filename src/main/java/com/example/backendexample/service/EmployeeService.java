@@ -1,6 +1,6 @@
-package com.example.BackendExample.service;
+package com.example.backendexample.service;
 
-import com.example.BackendExample.model.Employee;
+import com.example.backendexample.model.Employee;
 
 import java.util.List;
 

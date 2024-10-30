@@ -4,10 +4,10 @@ import com.example.backendexample.exception.ResourceNotFoundException;
 import com.example.backendexample.model.Employee;
 import com.example.backendexample.service.EmployeeService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/employees")
-@Api(value = "ems",description = "Operations related to the Employee Management")
+@Tag(name = "ems",description = "Operations related to the Employee Management")
 public class EmployeeController {
     private EmployeeService employeeService;
     public EmployeeController(EmployeeService employeeService) {
@@ -27,7 +27,7 @@ public class EmployeeController {
     }
 
 //    build create employee REST API
-@ApiOperation(value = "Add a new employee entry")
+@Operation(summary = "Add a new employee entry")
     @PostMapping()
     public ResponseEntity<Employee> saveEmployee( @RequestBody Employee employee){
         log.info("New Employee Added");
@@ -35,12 +35,12 @@ public class EmployeeController {
     }
 //     build get all employee REST API
 
-    @ApiOperation(value = "View a list of all the employees", response = Iterable.class)
+    @Operation(summary = "View a list of all the employees")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully retrieved list"),
-            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved list"),
+            @ApiResponse(responseCode = "401", description = "You are not authorized to view the resource"),
+            @ApiResponse(responseCode = "403", description = "Accessing the resource you were trying to reach is forbidden"),
+            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found")
     }
     )
     @GetMapping()
@@ -50,7 +50,7 @@ public class EmployeeController {
 }
 
 //         build get employee by id REST API
-@ApiOperation(value = "get employee details by employee ID")
+@Operation(summary = "get employee details by employee ID")
     @GetMapping("{id}")
     public ResponseEntity<? extends Object> getEmployeeById(@PathVariable("id") long employeeId){
         try {
@@ -69,9 +69,9 @@ public class EmployeeController {
 
     // build update employee REST API
 
-    @ApiOperation(value = "Update employee details")
+    @Operation(summary = "Update employee details")
     @PutMapping("{id}")
-    public ResponseEntity<? extends Object> updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee){
+    public ResponseEntity<? extends Object> updateEmployee(@PathVariable long id, @RequestBody Employee employee){
         try {
             log.info("Employee details with id={} have been modified",id);
             return new ResponseEntity<Employee>(employeeService.updateEmployee(employee, id), HttpStatus.OK);
@@ -86,9 +86,9 @@ public class EmployeeController {
     }
 //    build delete employee REST API
 
-    @ApiOperation(value = "Delete an employee record")
+    @Operation(summary = "Delete an employee record")
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id){
+    public ResponseEntity<String> deleteEmployee(@PathVariable long id){
         try {
             employeeService.deleteEmployee(id);
             log.info("employee details with id = {} deleted",id);
